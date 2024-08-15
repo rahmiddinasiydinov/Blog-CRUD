@@ -59,7 +59,7 @@ app.post('/posts', (req, res) => {
     title: req.body.title,
     content: req.body.content,
     author: req.body.author,
-    date: new Date().getTime()
+    date: new Date()
   }
   posts.push(newPost);
   res.json(posts.slice(-1))
@@ -74,7 +74,7 @@ app.patch('/posts/:id', (req, res) => {
     title: req.body.title || foundPost.title,
     content: req.body.content || foundPost.content,
     author: req.body.author || foundPost.author,
-    date: new Date().getTime()
+    date: new Date()
   }
   const postIndex = posts.findIndex(post => post.id === id)
   posts[postIndex] = changedPost;
